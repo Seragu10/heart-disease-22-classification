@@ -12,10 +12,6 @@ from sklearn.feature_extraction import DictVectorizer
 # Load the saved full pipeline from the file
 # Load the saved full pipeline from the file
 full_pipeline_path = '/workspaces/heart-disease-22-classification/logistic_regression_model.pkl'
-# used_data = pd.read_csv('/workspaces/heart-disease-22-classification/data.csv')
-# dv = DictVectorizer(sparse=False)
-# used_dict = used_data.to_dict(orient='records')
-# dv.fit(used_dict)
 with open(full_pipeline_path, 'rb') as f_in:
     full_pipeline = pickle.load(f_in)
 
