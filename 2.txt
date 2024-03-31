@@ -1,0 +1,162 @@
+Sex
+Female    127811
+Male      118211
+Name: count, dtype: int64
+GeneralHealth
+Very good    86999
+Good         77409
+Excellent    41525
+Fair         30659
+Poor          9430
+Name: count, dtype: int64
+LastCheckupTime
+Within past year (anytime less than 12 months ago)         198153
+Within past 2 years (1 year but less than 2 years ago)      23227
+Within past 5 years (2 years but less than 5 years ago)     13744
+5 or more years ago                                         10898
+Name: count, dtype: int64
+PhysicalActivities
+Yes    191318
+No      54704
+Name: count, dtype: int64
+RemovedTeeth
+None of them              131592
+1 to 5                     74702
+6 or more, but not all     25950
+All                        13778
+Name: count, dtype: int64
+HadHeartAttack
+No     232587
+Yes     13435
+Name: count, dtype: int64
+HadAngina
+No     231069
+Yes     14953
+Name: count, dtype: int64
+HadStroke
+No     235910
+Yes     10112
+Name: count, dtype: int64
+HadAsthma
+No     209493
+Yes     36529
+Name: count, dtype: int64
+HadSkinCancer
+No     225001
+Yes     21021
+Name: count, dtype: int64
+HadCOPD
+No     227028
+Yes     18994
+Name: count, dtype: int64
+HadDepressiveDisorder
+No     195402
+Yes     50620
+Name: count, dtype: int64
+HadKidneyDisease
+No     234738
+Yes     11284
+Name: count, dtype: int64
+HadArthritis
+No     161139
+Yes     84883
+Name: count, dtype: int64
+HadDiabetes
+No                                         204834
+Yes                                         33813
+No, pre-diabetes or borderline diabetes      5392
+Yes, but only during pregnancy (female)      1983
+Name: count, dtype: int64
+DeafOrHardOfHearing
+No     224990
+Yes     21032
+Name: count, dtype: int64
+BlindOrVisionDifficulty
+No     233796
+Yes     12226
+Name: count, dtype: int64
+DifficultyConcentrating
+No     219802
+Yes     26220
+Name: count, dtype: int64
+DifficultyWalking
+No     209952
+Yes     36070
+Name: count, dtype: int64
+DifficultyDressingBathing
+No     237682
+Yes      8340
+Name: count, dtype: int64
+DifficultyErrands
+No     229638
+Yes     16384
+Name: count, dtype: int64
+SmokerStatus
+Never smoked                             147737
+Former smoker                             68527
+Current smoker - now smokes every day     21659
+Current smoker - now smokes some days      8099
+Name: count, dtype: int64
+ECigaretteUsage
+Never used e-cigarettes in my entire life    190128
+Not at all (right now)                        43281
+Use them some days                             6658
+Use them every day                             5955
+Name: count, dtype: int64
+ChestScan
+No     141822
+Yes    104200
+Name: count, dtype: int64
+RaceEthnicityCategory
+White only, Non-Hispanic         186336
+Hispanic                          22570
+Black only, Non-Hispanic          19330
+Other race only, Non-Hispanic     12205
+Multiracial, Non-Hispanic          5581
+Name: count, dtype: int64
+AgeCategory
+Age 65 to 69       28557
+Age 60 to 64       26720
+Age 70 to 74       25739
+Age 55 to 59       22224
+Age 50 to 54       19913
+Age 75 to 79       18136
+Age 80 or older    17816
+Age 40 to 44       16973
+Age 45 to 49       16753
+Age 35 to 39       15614
+Age 30 to 34       13346
+Age 18 to 24       13122
+Age 25 to 29       11109
+Name: count, dtype: int64
+AlcoholDrinkers
+Yes    135307
+No     110715
+Name: count, dtype: int64
+HIVTesting
+No     161520
+Yes     84502
+Name: count, dtype: int64
+FluVaxLast12
+Yes    131196
+No     114826
+Name: count, dtype: int64
+PneumoVaxEver
+No     146130
+Yes     99892
+Name: count, dtype: int64
+TetanusLast10Tdap
+No, did not receive any tetanus shot in the past 10 years    81747
+Yes, received tetanus shot but not sure what type            74119
+Yes, received Tdap                                           70286
+Yes, received tetanus shot, but not Tdap                     19870
+Name: count, dtype: int64
+HighRiskLastYear
+No     235446
+Yes     10576
+Name: count, dtype: int64
+CovidPos
+No                                                               167306
+Yes                                                               70324
+Tested positive using home test without a health professional      8392
+Name: count, dtype: int64

@@ -1,0 +1,292 @@
+Sex
+0    127811
+1    118211
+Name: count, dtype: int64
+GeneralHealth
+4    86999
+2    77409
+0    41525
+1    30659
+3     9430
+Name: count, dtype: int64
+PhysicalHealthDays
+0.0     152802
+30.0     17160
+2.0      14728
+1.0      10058
+3.0       9137
+5.0       8939
+10.0      6068
+7.0       5221
+4.0       4906
+15.0      4845
+20.0      2950
+14.0      2813
+6.0       1421
+25.0      1123
+8.0        961
+12.0       610
+21.0       584
+28.0       365
+9.0        211
+29.0       178
+18.0       151
+16.0       126
+27.0       103
+17.0       101
+11.0        95
+13.0        87
+22.0        72
+26.0        64
+24.0        60
+23.0        54
+19.0        29
+Name: count, dtype: int64
+MentalHealthDays
+0.0     150454
+2.0      13810
+30.0     13702
+5.0      11623
+3.0       8849
+10.0      8831
+1.0       8244
+15.0      8061
+20.0      4925
+4.0       4568
+7.0       4485
+25.0      1647
+14.0      1573
+6.0       1326
+8.0        973
+12.0       715
+28.0       484
+21.0       301
+29.0       261
+18.0       166
+16.0       165
+9.0        145
+17.0       132
+27.0       113
+22.0       101
+13.0        96
+11.0        69
+24.0        68
+26.0        59
+23.0        51
+19.0        25
+Name: count, dtype: int64
+LastCheckupTime
+3    198153
+1     23227
+2     13744
+0     10898
+Name: count, dtype: int64
+PhysicalActivities
+1    191318
+0     54704
+Name: count, dtype: int64
+SleepHours
+7.0     76447
+8.0     69927
+6.0     53981
+5.0     16417
+9.0     11859
+4.0      6478
+10.0     5468
+3.0      1618
+12.0     1476
+2.0       740
+1.0       563
+11.0      339
+16.0      155
+15.0      154
+14.0      148
+18.0       83
+13.0       79
+20.0       50
+24.0       13
+17.0       11
+23.0        6
+19.0        5
+22.0        5
+Name: count, dtype: int64
+RemovedTeeth
+3    131592
+0     74702
+1     25950
+2     13778
+Name: count, dtype: int64
+HadHeartAttack
+0    232587
+1     13435
+Name: count, dtype: int64
+HadAngina
+0    231069
+1     14953
+Name: count, dtype: int64
+HadStroke
+0    235910
+1     10112
+Name: count, dtype: int64
+HadAsthma
+0    209493
+1     36529
+Name: count, dtype: int64
+HadSkinCancer
+0    225001
+1     21021
+Name: count, dtype: int64
+HadCOPD
+0    227028
+1     18994
+Name: count, dtype: int64
+HadDepressiveDisorder
+0    195402
+1     50620
+Name: count, dtype: int64
+HadKidneyDisease
+0    234738
+1     11284
+Name: count, dtype: int64
+HadArthritis
+0    161139
+1     84883
+Name: count, dtype: int64
+HadDiabetes
+0    204834
+2     33813
+1      5392
+3      1983
+Name: count, dtype: int64
+DeafOrHardOfHearing
+0    224990
+1     21032
+Name: count, dtype: int64
+BlindOrVisionDifficulty
+0    233796
+1     12226
+Name: count, dtype: int64
+DifficultyConcentrating
+0    219802
+1     26220
+Name: count, dtype: int64
+DifficultyWalking
+0    209952
+1     36070
+Name: count, dtype: int64
+DifficultyDressingBathing
+0    237682
+1      8340
+Name: count, dtype: int64
+DifficultyErrands
+0    229638
+1     16384
+Name: count, dtype: int64
+SmokerStatus
+3    147737
+2     68527
+0     21659
+1      8099
+Name: count, dtype: int64
+ECigaretteUsage
+0    190128
+1     43281
+3      6658
+2      5955
+Name: count, dtype: int64
+ChestScan
+0    141822
+1    104200
+Name: count, dtype: int64
+RaceEthnicityCategory
+4    186336
+1     22570
+0     19330
+3     12205
+2      5581
+Name: count, dtype: int64
+AgeCategory
+9     28557
+8     26720
+10    25739
+7     22224
+6     19913
+11    18136
+12    17816
+4     16973
+5     16753
+3     15614
+2     13346
+0     13122
+1     11109
+Name: count, dtype: int64
+HeightInMeters
+1.68    21694
+1.63    20835
+1.70    20054
+1.78    19540
+1.65    18825
+        ...  
+1.92        1
+2.36        1
+1.44        1
+1.38        1
+2.21        1
+Name: count, Length: 101, dtype: int64
+WeightInKilograms
+90.72     13066
+81.65     12018
+68.04     10365
+72.57     10350
+77.11      9725
+          ...  
+238.14        1
+200.49        1
+166.47        1
+205.02        1
+30.39         1
+Name: count, Length: 516, dtype: int64
+BMI
+26.63    2727
+27.46    2040
+27.44    1964
+24.41    1922
+27.12    1893
+         ... 
+41.65       1
+33.24       1
+25.57       1
+13.64       1
+45.28       1
+Name: count, Length: 3514, dtype: int64
+AlcoholDrinkers
+1    135307
+0    110715
+Name: count, dtype: int64
+HIVTesting
+0    161520
+1     84502
+Name: count, dtype: int64
+FluVaxLast12
+1    131196
+0    114826
+Name: count, dtype: int64
+PneumoVaxEver
+0    146130
+1     99892
+Name: count, dtype: int64
+TetanusLast10Tdap
+0    81747
+3    74119
+1    70286
+2    19870
+Name: count, dtype: int64
+HighRiskLastYear
+0    235446
+1     10576
+Name: count, dtype: int64
+CovidPos
+0    167306
+2     70324
+1      8392
+Name: count, dtype: int64
