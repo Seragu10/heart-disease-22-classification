@@ -12,7 +12,10 @@ from sklearn.feature_extraction import DictVectorizer
 # Load the saved full pipeline from the file
 # Load the saved full pipeline from the file
 full_pipeline_path = '/workspaces/heart-disease-22-classification/logistic_regression_model.pkl'
-
+# used_data = pd.read_csv('/workspaces/heart-disease-22-classification/data.csv')
+# dv = DictVectorizer(sparse=False)
+# used_dict = used_data.to_dict(orient='records')
+# dv.fit(used_dict)
 with open(full_pipeline_path, 'rb') as f_in:
     full_pipeline = pickle.load(f_in)
 
@@ -71,10 +74,10 @@ def predict(Sex, GeneralHealth, PhysicalHealthDays, MentalHealthDays,LastCheckup
 
         # Make predictions using the loaded logistic regression model
         #predict probabilities
-    # dv = DictVectorizer(sparse=False)
-    # test_dict = input_data.to_dict(orient='records')
-    # X_test = dv.transform(test_dict)
-    predictions = full_pipeline.predict_proba(input_data)
+    dv = DictVectorizer(sparse=False)
+    test_dict = input_data.to_dict(orient='records')
+    X_test = dv.fit_transform(test_dict)
+    predictions = full_pipeline.predict_proba(X_test)
     #take the index of the maximum probability
     index=np.argmax(predictions)
     higher_pred_prob=round((predictions[0][index])*100)
