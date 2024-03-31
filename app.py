@@ -7,6 +7,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.feature_extraction import DictVectorizer
 
 # Load the saved full pipeline from the file
 # Load the saved full pipeline from the file
@@ -17,14 +18,7 @@ with open(full_pipeline_path, 'rb') as f_in:
 
 # Define the predict function
 # Define the predict function
-def predict(Sex, GeneralHealth, PhysicalHealthDays, MentalHealthDays,
-       LastCheckupTime, PhysicalActivities, SleepHours, RemovedTeeth,
-       HadHeartAttack, HadAngina, HadStroke, HadAsthma,
-       HadSkinCancer, HadCOPD, HadDepressiveDisorder, HadKidneyDisease,
-       HadArthritis, HadDiabetes, DeafOrHardOfHearing,
-       BlindOrVisionDifficulty, DifficultyConcentrating,
-       DifficultyWalking, DifficultyDressingBathing, DifficultyErrands,
-       SmokerStatus, ECigaretteUsage, ChestScan, RaceEthnicityCategory,
+def predict(Sex, GeneralHealth, PhysicalHealthDays, MentalHealthDays,LastCheckupTime, PhysicalActivities, SleepHours, RemovedTeeth, HadAngina, HadStroke, HadAsthma,HadSkinCancer, HadCOPD, HadDepressiveDisorder, HadKidneyDisease,HadArthritis, HadDiabetes, DeafOrHardOfHearing,BlindOrVisionDifficulty, DifficultyConcentrating,DifficultyWalking, DifficultyDressingBathing, DifficultyErrands,SmokerStatus, ECigaretteUsage, ChestScan, RaceEthnicityCategory,
        AgeCategory, HeightInMeters, WeightInKilograms, BMI,
        AlcoholDrinkers, HIVTesting, FluVaxLast12, PneumoVaxEver,
        TetanusLast10Tdap, HighRiskLastYear, CovidPos):
@@ -33,51 +27,53 @@ def predict(Sex, GeneralHealth, PhysicalHealthDays, MentalHealthDays,
         'Sex' : [Sex] if Sex else [0],
         'GeneralHealth' : [GeneralHealth] if GeneralHealth else [0],
         'PhysicalHealthDays' : [PhysicalHealthDays] if PhysicalHealthDays else [0],
-        'MentalHealthDays': [Sex] if Sex else [0],
-        'LastCheckupTime' : [Sex] if Sex else [0],
-        'PhysicalActivities' : [Sex] if Sex else [0],
-        'SleepHours' :[Sex] if Sex else [0],
-        'RemovedTeeth': [Sex] if Sex else [0],
-        'HadHeartAttack': [Sex] if Sex else [0],
-        'HadAngina' : [Sex] if Sex else [0],
+        'MentalHealthDays': [MentalHealthDays] if MentalHealthDays else [0],
+        'LastCheckupTime' : [LastCheckupTime] if LastCheckupTime else [0],
+        'PhysicalActivities' : [PhysicalActivities] if PhysicalActivities else [0],
+        'SleepHours' :[SleepHours] if SleepHours else [0],
+        'RemovedTeeth': [RemovedTeeth] if RemovedTeeth else [0],
+        'HadAngina' : [HadAngina] if HadAngina else [0],
     
-        'HadStroke' : [Sex] if Sex else [0],
-        'HadAsthma': [Sex] if Sex else [0],
-        'HadSkinCancer' : [Sex] if Sex else [0],
-        'HadCOPD' : [Sex] if Sex else [0],
-        'HadDepressiveDisorder' : [Sex] if Sex else [0],
-        'HadKidneyDisease': [Sex] if Sex else [0],
-        'HadArthritis' : [Sex] if Sex else [0],
-        'HadDiabetes' : [Sex] if Sex else [0],
-        'DeafOrHardOfHearing': [Sex] if Sex else [0],
+        'HadStroke' : [HadStroke] if HadStroke else [0],
+        'HadAsthma': [HadAsthma] if HadAsthma else [0],
+        'HadSkinCancer' : [HadSkinCancer] if HadSkinCancer else [0],
+        'HadCOPD' : [HadCOPD] if HadCOPD else [0],
+        'HadDepressiveDisorder' : [HadDepressiveDisorder] if HadDepressiveDisorder else [0],
+        'HadKidneyDisease': [HadKidneyDisease] if HadKidneyDisease else [0],
+        'HadArthritis' : [HadArthritis] if HadArthritis else [0],
+        'HadDiabetes' : [HadDiabetes] if HadDiabetes else [0],
+        'DeafOrHardOfHearing': [DeafOrHardOfHearing] if DeafOrHardOfHearing else [0],
     
-        'BlindOrVisionDifficulty' : [Sex] if Sex else [0],
-        'DifficultyConcentrating': [Sex] if Sex else [0],
-        'DifficultyWalking' : [Sex] if Sex else [0],
-        'DifficultyDressingBathing': [Sex] if Sex else [0],
-        'DifficultyErrands': [Sex] if Sex else [0],
-        'SmokerStatus': [Sex] if Sex else [0],
-        'ECigaretteUsage': [Sex] if Sex else [0],
+        'BlindOrVisionDifficulty' : [BlindOrVisionDifficulty] if BlindOrVisionDifficulty else [0],
+        'DifficultyConcentrating': [DifficultyConcentrating] if DifficultyConcentrating else [0],
+        'DifficultyWalking' : [DifficultyWalking] if DifficultyWalking else [0],
+        'DifficultyDressingBathing': [DifficultyDressingBathing] if DifficultyDressingBathing else [0],
+        'DifficultyErrands': [DifficultyErrands] if DifficultyErrands else [0],
+        'SmokerStatus': [SmokerStatus] if SmokerStatus else [0],
+        'ECigaretteUsage': [ECigaretteUsage] if ECigaretteUsage else [0],
     
-        'ChestScan': [Sex] if Sex else [0],
-        'RaceEthnicityCategory': [Sex] if Sex else [0],
-        'AgeCategory': [Sex] if Sex else [0],
-        'HeightInMeters': [Sex] if Sex else [0],
-        'WeightInKilograms' : [Sex] if Sex else [0],
-        'BMI': [Sex] if Sex else [0],
-        'AlcoholDrinkers': [Sex] if Sex else [0],
-        'HIVTesting' : [Sex] if Sex else [0],
+        'ChestScan': [ChestScan] if ChestScan else [0],
+        'RaceEthnicityCategory': [RaceEthnicityCategory] if RaceEthnicityCategory else [0],
+        'AgeCategory': [AgeCategory] if AgeCategory else [0],
+        'HeightInMeters': [HeightInMeters] if HeightInMeters else [0],
+        'WeightInKilograms' : [WeightInKilograms] if WeightInKilograms else [0],
+        'BMI': [BMI] if BMI else [0],
+        'AlcoholDrinkers': [AlcoholDrinkers] if AlcoholDrinkers else [0],
+        'HIVTesting' : [HIVTesting] if HIVTesting else [0],
     
 
-        'FluVaxLast12': [Sex] if Sex else [0],
-        'PneumoVaxEver': [Sex] if Sex else [0],
-        'TetanusLast10Tdap': [Sex] if Sex else [0],
-        'HighRiskLastYear': [Sex] if Sex else [0],
-        'CovidPos': [Sex] if Sex else [0],
+        'FluVaxLast12': [FluVaxLast12] if FluVaxLast12 else [0],
+        'PneumoVaxEver': [PneumoVaxEver] if PneumoVaxEver else [0],
+        'TetanusLast10Tdap': [TetanusLast10Tdap] if TetanusLast10Tdap else [0],
+        'HighRiskLastYear': [HighRiskLastYear] if HighRiskLastYear else [0],
+        'CovidPos': [CovidPos] if CovidPos else [0],
     })
 
         # Make predictions using the loaded logistic regression model
         #predict probabilities
+    # dv = DictVectorizer(sparse=False)
+    # test_dict = input_data.to_dict(orient='records')
+    # X_test = dv.transform(test_dict)
     predictions = full_pipeline.predict_proba(input_data)
     #take the index of the maximum probability
     index=np.argmax(predictions)
@@ -128,50 +124,49 @@ with gr.Blocks(css=".gradio-container {background-color:grey }",theme=gr.themes.
     # Receiving ALL Input Data here
     gr.Markdown("**Demographic Data**")
     with gr.Row():
-        Sex = gr.Number()
-        GeneralHealth = gr.Number()
-        PhysicalHealthDays = gr.Number()
-        MentalHealthDays= gr.Number()
-        LastCheckupTime = gr.Number()
-        PhysicalActivities = gr.Number()
-        SleepHours = gr.Number()
-        RemovedTeeth= gr.Number()
-        HadHeartAttack= gr.Number()
-        HadAngina = gr.Number()
+        Sex = gr.Number(label = 'Sex')
+        GeneralHealth = gr.Number(label = 'GeneralHealth')
+        PhysicalHealthDays = gr.Number(label = 'PhysicalHealthDays')
+        MentalHealthDays= gr.Number(label = 'MentalHealthDays')
+        LastCheckupTime = gr.Number(label = 'LastCheckupTime')
+        PhysicalActivities = gr.Number(label = 'PhysicalActivities')
+        SleepHours = gr.Number(label = 'SleepHours')
+        RemovedTeeth= gr.Number(label = 'RemovedTeeth')
+        HadAngina = gr.Number(label = 'HadAngina')
     with gr.Row():
-        HadStroke = gr.Number()
-        HadAsthma= gr.Number()
-        HadSkinCancer = gr.Number()
-        HadCOPD = gr.Number()
-        HadDepressiveDisorder = gr.Number()
-        HadKidneyDisease= gr.Number()
-        HadArthritis = gr.Number()
-        HadDiabetes = gr.Number()
-        DeafOrHardOfHearing= gr.Number()
+        HadStroke = gr.Number(label = 'HadStroke')
+        HadAsthma= gr.Number(label = 'HadAsthma')
+        HadSkinCancer = gr.Number(label = 'HadSkinCancer')
+        HadCOPD = gr.Number(label = 'HadCOPD')
+        HadDepressiveDisorder = gr.Number(label = 'HadDepressiveDisorder')
+        HadKidneyDisease= gr.Number(label = 'HadKidneyDisease')
+        HadArthritis = gr.Number(label = 'HadArthritis')
+        HadDiabetes = gr.Number(label = 'HadDiabetes')
+        DeafOrHardOfHearing= gr.Number(label = 'DeafOrHardOfHearing')
     with gr.Row():
-        BlindOrVisionDifficulty = gr.Number()
-        DifficultyConcentrating= gr.Number()
-        DifficultyWalking = gr.Number()
-        DifficultyDressingBathing= gr.Number()
-        DifficultyErrands= gr.Number()
-        SmokerStatus= gr.Number()
-        ECigaretteUsage= gr.Number()
+        BlindOrVisionDifficulty = gr.Number(label = 'BlindOrVisionDifficulty')
+        DifficultyConcentrating= gr.Number(label = 'DifficultyConcentrating')
+        DifficultyWalking = gr.Number(label = 'DifficultyWalking')
+        DifficultyDressingBathing= gr.Number(label = 'DifficultyDressingBathing')
+        DifficultyErrands= gr.Number(label = 'DifficultyErrands')
+        SmokerStatus= gr.Number(label = 'SmokerStatus')
+        ECigaretteUsage= gr.Number(label = 'ECigaretteUsage')
     with gr.Row():
-        ChestScan= gr.Number()
-        RaceEthnicityCategory= gr.Number()
-        AgeCategory= gr.Number()
-        HeightInMeters= gr.Number()
-        WeightInKilograms = gr.Number()
-        BMI= gr.Number()
-        AlcoholDrinkers= gr.Number()
-        HIVTesting = gr.Number()
+        ChestScan= gr.Number(label = 'ChestScan')
+        RaceEthnicityCategory= gr.Number(label = 'RaceEthnicityCategory')
+        AgeCategory= gr.Number(label = 'AgeCategory')
+        HeightInMeters= gr.Number(label = 'HeightInMeters')
+        WeightInKilograms = gr.Number(label = 'WeightInKilograms')
+        BMI= gr.Number(label = 'BMI')
+        AlcoholDrinkers= gr.Number(label = 'AlcoholDrinkers')
+        HIVTesting = gr.Number(label = 'HIVTesting')
     with gr.Row():
 
-        FluVaxLast12= gr.Number()
-        PneumoVaxEver= gr.Number()
-        TetanusLast10Tdap= gr.Number()
-        HighRiskLastYear= gr.Number()
-        CovidPos= gr.Number()
+        FluVaxLast12= gr.Number(label = 'FluVaxLast12')
+        PneumoVaxEver= gr.Number(label = 'PneumoVaxEver')
+        TetanusLast10Tdap= gr.Number(label = 'TetanusLast10Tdap')
+        HighRiskLastYear= gr.Number(label = 'HighRiskLastYear')
+        CovidPos= gr.Number(label = 'CovidPos')
 
     # Output Prediction
     output = gr.Text(label="Outcome")
@@ -180,8 +175,7 @@ with gr.Blocks(css=".gradio-container {background-color:grey }",theme=gr.themes.
     submit_button.click(fn= predict,
                         outputs= output,
                         inputs=[Sex, GeneralHealth, PhysicalHealthDays, MentalHealthDays,
-       LastCheckupTime, PhysicalActivities, SleepHours, RemovedTeeth,
-       HadHeartAttack, HadAngina, HadStroke, HadAsthma,
+       LastCheckupTime, PhysicalActivities, SleepHours, RemovedTeeth, HadAngina, HadStroke, HadAsthma,
        HadSkinCancer, HadCOPD, HadDepressiveDisorder, HadKidneyDisease,
        HadArthritis, HadDiabetes, DeafOrHardOfHearing,
        BlindOrVisionDifficulty, DifficultyConcentrating,
